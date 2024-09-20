@@ -4,41 +4,35 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
     <meta name="description" content="">
     <meta name="author" content="">
-
-    <title>Guest Book</title>
-
-    <!-- Bootstrap core CSS -->
-    <link href="{{ url_for('static', filename='css/bootstrap.min.css') }}" rel="stylesheet"> 
-    <!-- Bootstrap theme -->
-    <link href="{{ url_for('static', filename='css/bootstrap-theme.min.css') }}" rel="stylesheet">
-
-    <!-- Custom styles for this template -->
+    <title>Buku Tamu</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"> 
     <link href="{{ url_for('static', filename='css/theme.css') }}" rel="stylesheet">
 
   </head>
-
   <body>
-
-    <div class="container theme-showcase" role="main">
-
+    <div class="container theme-showcase">
       <div class="jumbotron">
-        <h1>Guest Book</h1>
-        <a type="button" class="btn btn-link" href="{{ url_for('sign') }}">Sign the Guest Book</a>
+        <h1>Buku Tamu</h1>
+        <a type="button" class="btn btn-primary" href="{{ url_for('sign') }}">Sign the Guest Book</a>
+        <a href="/" class="btn btn-link">Refresh</a>
       </div>
 
+      <hr/>
       {% for res in result %}
-      <div class="page-header">
-        <h1>{{ res.name }}</h1>
-      </div>
-      <div class="well">
-        <p>{{ res.comment }}</p>
+      <div class="border p-3 mb-4">
+        <div class="page-header">
+          <h2>{{ res.name }}</h2>
+        </div>
+        <div class="well">
+          <p>{{ res.comment }}</p>
+          <a class="btn btn-danger" href="{{ url_for('delete', id=res.id) }}">Hapus</a>
+          <a class="btn btn-info" href="{{ url_for('update', id=res.id) }}">Edit</a>
+        </div>
       </div>
       {% endfor %}
-
-    </div> <!-- /container -->
+    </div>
 
   </body>
 </html>

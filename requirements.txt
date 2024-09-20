@@ -1,5 +1,5 @@
 # Flask Framework
-Flask
+Flask>=2.2.2
 
 # Flask Packages
 Flask-SQLAlchemy

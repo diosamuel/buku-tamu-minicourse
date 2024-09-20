@@ -6,24 +6,24 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="">
     <meta name="author" content="">
-    <title>Sign the Guest Book</title>
+    <title>Edit Buku Tamu</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"> 
   </head>
+
   <body>
     <div class="container">
-      <form class="form-signin" method="post" action="/process">
-        <h2 class="form-signin-heading">Isi Buku Tamu</h2>
+      <form class="form-signin" action="{{ url_for('update_process', id=comment.id) }}" method="POST">
+        <h2 class="form-signin-heading">Edit Buku Tamu</h2>
         <div class="form-group">
-          <label for="inputName" class="sr-only">Nama:</label>
-          <input type="text" id="inputName" name="name" class="form-control" placeholder="Name" required autofocus>
+          <label for="inputName" class="sr-only">Nama</label>
+          <input type="text" id="inputName" name="name" class="form-control" placeholder="Name" required autofocus  value="{{ comment.name }}">
         </div>
         <div class="form-group">
           <label for="comment" class="sr-only">Komentar:</label>
-            <textarea class="form-control" name="comment" rows="5" id="comment" placeholder="Comment" required></textarea>
+            <textarea class="form-control" name="comment" rows="5" id="comment" placeholder="Comment" required>{{ comment.comment }}</textarea>
         </div>
-        <button class="btn btn-lg btn-primary btn-block w-100 mt-3" type="submit">Sign</button>
+        <button class="btn btn-lg btn-primary btn-block" type="submit">Update</button>
       </form>
     </div>
-
   </body>
 </html>
