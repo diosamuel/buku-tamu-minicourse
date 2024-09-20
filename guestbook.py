@@ -46,10 +46,8 @@ def update(id):
 @app.route('/update_process/<int:id>', methods=['POST'])
 def update_process(id):
     comment_to_update = Comments.query.get_or_404(id)
-    
     comment_to_update.name = request.form['name']
     comment_to_update.comment = request.form['comment']
-    
     db.session.commit()
     return redirect(url_for('index'))
 
