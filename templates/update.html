@@ -8,11 +8,12 @@
     <meta name="author" content="">
     <title>Edit Buku Tamu</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"> 
+    <link href="{{ url_for('static', filename='css/theme.css') }}" rel="stylesheet">
   </head>
 
   <body>
     <div class="container">
-      <form class="form-signin" action="{{ url_for('update_process', id=comment.id) }}" method="POST">
+      <form class="" action="{{ url_for('update_process', id=comment.id) }}" method="POST">
         <h2 class="form-signin-heading">Edit Buku Tamu</h2>
         <div class="form-group">
           <label for="inputName" class="sr-only">Nama</label>
@@ -22,7 +23,7 @@
           <label for="comment" class="sr-only">Komentar:</label>
             <textarea class="form-control" name="comment" rows="5" id="comment" placeholder="Comment" required>{{ comment.comment }}</textarea>
         </div>
-        <button class="btn btn-lg btn-primary btn-block" type="submit">Update</button>
+        <button class="btn btn-lg btn-primary btn-block w-100" type="submit">Update</button>
       </form>
     </div>
   </body>

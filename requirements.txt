@@ -3,3 +3,5 @@ Flask>=2.2.2
 
 # Flask Packages
 Flask-SQLAlchemy
+mysqlclient
+psycopg2

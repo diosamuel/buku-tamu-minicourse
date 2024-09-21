@@ -2,7 +2,7 @@ from flask import Flask, render_template, request, redirect, url_for
 from flask_sqlalchemy import SQLAlchemy
 app = Flask(__name__)
 
-app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql://root:@localhost:3306/bukutamu'
+app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://postgres.vevjsqcqtpmczexwneck:databasesaya123#@aws-0-us-east-1.pooler.supabase.com:6543/postgres'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 db = SQLAlchemy(app)
 
@@ -40,14 +40,14 @@ def delete(id):
 
 @app.route('/update/<int:id>')
 def update(id):
-    comment_to_update = Comments.query.get_or_404(id)
-    return render_template('update.html', comment=comment_to_update)
+    Komentar = Comments.query.get_or_404(id)
+    return render_template('update.html', comment=Komentar)
 
 @app.route('/update_process/<int:id>', methods=['POST'])
 def update_process(id):
-    comment_to_update = Comments.query.get_or_404(id)
-    comment_to_update.name = request.form['name']
-    comment_to_update.comment = request.form['comment']
+    Komentar = Comments.query.get_or_404(id)
+    Komentar.name = request.form['name']
+    Komentar.comment = request.form['comment']
     db.session.commit()
     return redirect(url_for('index'))
 
